@@ -1,1 +1,40 @@
-/* pages/my/index.wxss */
+.items {
+    overflow: hidden;
+}
+
+.item {
+    display: block;
+    padding: 15px;
+    border-bottom: solid 1px #f6f6f6;
+    overflow: hidden;
+}
+
+.img {
+    float: left;
+    width: 84px;
+    height: 68px;
+}
+
+.info {
+    display: block;
+    margin-left: 100px;
+    line-height: 1.2;
+}
+
+.title {
+    display: block;
+    font-size: 16px;
+}
+
+.star {
+    display: block;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
+.address {
+    display: block;
+    font-size: 14px;
+    color: #8e8e8e;
+    padding-top: 5px;
+}

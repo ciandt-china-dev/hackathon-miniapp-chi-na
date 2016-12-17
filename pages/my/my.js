@@ -3,6 +3,17 @@ Page({
   data:{
     myfavorite_shops:[],
   },
+
+  onItemClick(e){
+    console.log(e.currentTarget)
+    var targetUrl = '/pages/detail/detail'
+    if(e.currentTarget.dataset.shopId != null)
+      targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
+    wx.navigateTo({
+      url: targetUrl
+    })
+  },
+
   onLoad:function(options){
     
   },
