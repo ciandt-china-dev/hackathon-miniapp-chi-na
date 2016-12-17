@@ -4,9 +4,9 @@
     <view class="location-address">{{address}}</view>
 </view>
 
-<picker bindchange="bindPickerChange" range="{{myAddress.array}}">
+<picker bindchange="bindPickerChange" range="{{myAddressPicker.array}}">
   <view class="picker">
-    当前选择：{{myAddress.array[index]}}
+    当前选择：{{address}}
   </view>
 </picker>
 
@@ -14,3 +14,4 @@
   咻一咻
   <view class="before"></view>
 </view>
+
