@@ -11,4 +11,4 @@
   </block>
 </scroll-view>
 
-<button bindtap="clearFavorite">清空记录</button>
+<button class="btn-submit" bindtap="clearFavorite">清空记录</button>

@@ -38,3 +38,12 @@
     color: #8e8e8e;
     padding-top: 5px;
 }
+
+.btn-submit {
+    margin: 30px 15px;
+    background: #fff;
+}
+
+.btn-submit:active {
+    background: #e9eaea;
+}

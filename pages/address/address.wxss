@@ -1,57 +1,30 @@
 /* pages/index/index.wxss */
-.btn-search {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    text-align: center;
-    margin-top: -25px;
-    margin-left: -75px;
-    border-radius: 50%;
-    overflow: hidden;
-    z-index: 99;
-    color: #fff;
-    background: #29a1f7;
-}
-
-.btn-search:active {
-    background: #49adf5;
-}
-
-.location {
-    padding: 8px 15px;
-    height: 34px;
-    line-height: 34px;
-    font-size: 16px;
-    color: #fff;
-    background: #1b83d4;
+.item {
+    padding: 15px;
+    border-bottom: solid 1px #f6f6f6;
     overflow: hidden;
 }
 
-.location-icon,
-.address-icon {
-    width: 24px;
-    height: 24px;
-    margin-top: 4px;
-}
-
-.location-icon {
+.title {
     float: left;
-    margin-right: 10px;
+    line-height: 32px;
 }
 
-.address-icon {
-    float: right;
-    margin-left: 10px;
-}
-
-.location-address {
-    padding: 0 10px;
-    background: #2f8dd6;
-    border-radius: 4px;
+.text {
+    margin-left: 60px;
     overflow: hidden;
-    white-space:nowrap;
-    text-overflow:ellipsis;
+}
+
+.input {
+    height: 32px;
+}
+
+.btn-submit {
+    margin: 30px 15px;
+    color: #fff;
+    background: #1AAD19;
+}
+
+.btn-submit:active {
+    background: #30b530;
 }
