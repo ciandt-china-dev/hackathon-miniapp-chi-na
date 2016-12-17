@@ -1,25 +1,31 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/nearby/nearby",
+    "pages/list/index",
     "pages/my/index"
   ],
   "window": {
     "backgroundColor": "light",
-    "navigationBarBackgroundColor": "#1b82d2",
+    "navigationBarBackgroundColor": "#14619d",
     "navigationBarTitleText": "吃哪儿",
     "navigationBarTextStyle": "#fff"
   },
   "tabBar": {
     "list":[{
       "pagePath": "pages/index/index",
-      "text": "首页"
+      "text": "首页",
+      "iconPath": "image/icon_index.png",
+      "selectedIconPath": "image/icon_index_HL.png"
     },{
-      "pagePath": "pages/nearby/nearby",
-      "text": "列表"
+      "pagePath": "pages/list/index",
+      "text": "附近",
+      "iconPath": "image/icon_list.png",
+      "selectedIconPath": "image/icon_list_HL.png"
     },{
       "pagePath": "pages/my/index",
-      "text": "我的"
+      "text": "我的",
+      "iconPath": "image/icon_my.png",
+      "selectedIconPath": "image/icon_my_HL.png"
     }],
     "color": "#888",
     "selectedColor": "#29a1f7",
