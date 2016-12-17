@@ -16,6 +16,7 @@ Page({
       index: 0
     },
     myAddress:[],
+    loadStatus:'fail'
   },
 
   bindPickerChange: function(e) {
@@ -90,7 +91,8 @@ Page({
           success: function(res){
             page.setData({
               nearby:res,
-              address:res.data.result.addressComponent.street
+              address:res.data.result.addressComponent.street,
+              loadStatus:"success"
             })
           },
           fail: function() {
@@ -108,7 +110,10 @@ Page({
   randomShop: function(e) {
     var page = this
     var keyword = page.data.address
-    wx.request({
+
+    var status = page.data.loadStatus
+    if(status=="success"){
+          wx.request({
       url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/search/map/ajax/json',
       data:{
         cityId:11,
@@ -130,6 +135,21 @@ Page({
         page.setData({
             shops: res.data.shopRecordBeanList
         })
+          //生成0到19的随机数
+   var randomNum = Math.ceil(Math.random()*19)
+
+   console.log(page.data.shops[randomNum].shopId)
+   page.setData({
+     random_shop_id:page.data.shops[randomNum].shopId,
+     random_shop_name:page.data.shops[randomNum].shopName,
+     loadStatus:"success"
+   })
+    var targetUrl = '/pages/detail/detail'
+    if(e.currentTarget.dataset.shopId != null)
+      targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
+    wx.navigateTo({
+      url: targetUrl
+    })
       },
       fail: function() {
               // fail
@@ -142,25 +162,20 @@ Page({
               }
             }
           })
+          page.setData({
+            loadStatus:"success"
+          })
       },
       complete: function() {
               // complete
+          
       }
     })
-   //生成0到19的随机数
-   var randomNum = Math.ceil(Math.random()*19)
+     
 
-   console.log(page.data.shops[randomNum].shopId)
-   page.setData({
-     random_shop_id:page.data.shops[randomNum].shopId,
-     random_shop_name:page.data.shops[randomNum].shopName
-   })
-    var targetUrl = '/pages/detail/detail'
-    if(e.currentTarget.dataset.shopId != null)
-      targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
-    wx.navigateTo({
-      url: targetUrl
-    })
+    }
+
+
 
   },
 
