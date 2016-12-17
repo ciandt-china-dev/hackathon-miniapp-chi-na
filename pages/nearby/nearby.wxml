@@ -4,6 +4,7 @@
       <image class="img" src="{{shop.defaultPic}}"></image>
       <view class="info">
         <text class="title">{{shop.shopName}}</text>
+        <text class="star">{{shop.shopPowerTitle}}</text>
         <text class="address">{{shop.address}}</text>
       </view>
     </view>

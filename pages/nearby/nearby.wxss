@@ -26,8 +26,15 @@
     font-size: 16px;
 }
 
+.star {
+    display: block;
+    font-size: 14px;
+    padding-top: 5px;
+}
+
 .address {
     display: block;
     font-size: 14px;
     color: #8e8e8e;
+    padding-top: 5px;
 }
