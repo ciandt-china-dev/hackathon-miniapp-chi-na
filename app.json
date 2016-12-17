@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/list/index",
+    "pages/nearby/nearby",
     "pages/my/index"
   ],
   "window": {
@@ -17,7 +17,7 @@
       "iconPath": "image/icon_index.png",
       "selectedIconPath": "image/icon_index_HL.png"
     },{
-      "pagePath": "pages/list/index",
+      "pagePath": "pages/nearby/nearby",
       "text": "附近",
       "iconPath": "image/icon_list.png",
       "selectedIconPath": "image/icon_list_HL.png"
