@@ -21,13 +21,28 @@ Page({
 
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var page = this
+
+  
+  },
+  onReady:function(){
+    // 页面渲染完成
+    
+  },
+  onShow:function(){
+    // 页面显示
+        var page = this
 
     //获取当前位置
     wx.getLocation({
       type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function(res){
         // success
+        // wx.showToast({
+        //   title: '加载中',
+        //   icon: 'loading',
+        //   duration: 100000
+        // })
+        wx.showNavigationBarLoading()
         console.log(res.latitude)
         console.log(res.longitude)
         page.setData({
@@ -54,6 +69,7 @@ Page({
           },
           fail: function() {
             // fail
+            
           },
           complete: function() {
             // complete
@@ -86,9 +102,22 @@ Page({
               },
               fail: function() {
                 // fail
+              wx.showModal({
+                title: '网络错误',
+                content: '网络挂了😢',
+                success: function(res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                  }
+                }
+              })
               },
               complete: function() {
                 // complete
+                // setTimeout(function(){
+                //   wx.hideToast()
+                // },20000)
+                wx.hideNavigationBarLoading()
               }
             })
           }
@@ -101,15 +130,6 @@ Page({
         // complete
       }
     })
-  
-  },
-  onReady:function(){
-    // 页面渲染完成
-    
-  },
-  onShow:function(){
-    // 页面显示
-    
   },
   onHide:function(){
     // 页面隐藏
