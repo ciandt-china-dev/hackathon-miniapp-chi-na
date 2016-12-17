@@ -11,7 +11,17 @@ Page({
     nearby:[],
     shops:[],
     random_shop_id:'',
-    random_shop_name:''
+    random_shop_name:'',
+    myAddress: {
+      array: ['美国', '中国', '巴西', '日本'],
+      index: 0
+    }
+  },
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
   durationChange: function(e) {
     this.setData({
@@ -51,7 +61,7 @@ Page({
           },
           complete: function() {
             // complete
-   
+
           }
         })
       }
@@ -83,7 +93,7 @@ Page({
     })
    //生成0到19的随机数
    var randomNum = Math.ceil(Math.random()*19)
-   
+
    console.log(page.data.shops[randomNum].shopId)
    page.setData({
      random_shop_id:page.data.shops[randomNum].shopId,
