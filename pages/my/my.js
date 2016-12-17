@@ -33,6 +33,9 @@ Page({
             data_result[data_array.length-i-1] = store_detail_array;
           };
           page.data.myfavorite_shops = data_result;
+          page.setData({
+            myfavorite_shops :data_result
+        })
           console.log(data_result);
         }else{
           console.log('None');

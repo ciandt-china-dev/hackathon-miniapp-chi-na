@@ -144,25 +144,41 @@ Page({
         page.setData({
             shops: res.data.shopRecordBeanList
         })
-          //生成0到19的随机数
-        var randomNum = Math.ceil(Math.random()*19)
 
-        console.log(page.data.shops[randomNum].shopId)
-        page.setData({
+        console.log(res.data.shopRecordBeanList.length)
+
+          //生成0到19的随机数
+        var randomNum = Math.ceil(Math.random()*(res.data.shopRecordBeanList.length - 1))
+
+        //console.log(page.data.shops[randomNum].shopId)
+        if(res.data.shopRecordBeanList.length > 0) {
+          page.setData({
           random_shop_id:page.data.shops[randomNum].shopId,
-          random_shop_name:page.data.shops[randomNum].shopName,
-          loadStatus:"success"
-        })
-        var targetUrl = '/pages/detail/detail'
-        if(page.data.shops[randomNum].shopId != null){
-          targetUrl = targetUrl + '?shopId=' + page.data.shops[randomNum].shopId
-          wx.navigateTo({
-            url: targetUrl,
-            success: function(res){
-              // success
-            // page.setData({
-            //   loadStatus:"success"
-            // })
+            random_shop_name:page.data.shops[randomNum].shopName,
+            loadStatus:"success"
+          })
+          var targetUrl = '/pages/detail/detail'
+          if(page.data.shops[randomNum].shopId != null){
+            targetUrl = targetUrl + '?shopId=' + page.data.shops[randomNum].shopId
+            wx.navigateTo({
+              url: targetUrl,
+              success: function(res){
+                // success
+              // page.setData({
+              //   loadStatus:"success"
+              // })
+              }
+            })
+          }
+        }
+        else {
+          wx.showModal({
+             title: '无结果',
+             content: '您搜的地址附件无美食哦，请更换地址😢',
+             success: function(res) {
+            if (res.confirm) {
+                console.log('用户点击确定')
+              }
             }
           })
         }
