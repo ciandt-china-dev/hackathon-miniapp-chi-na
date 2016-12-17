@@ -44,9 +44,9 @@ Page({
         if (res.data) {
           var data_result = new Array();
           var data_array = res.data.split("|||");
-          for (var i = data_array.length-1; i >=0 ; i--) {
+          for (var i = 0; i < data_array.length ; i++) {
             var store_detail_array = data_array[i].split("###");
-            data_result[data_array.length-i-1] = store_detail_array;
+            data_result[i] = store_detail_array;
           };
           page.data.myAddress = data_result;
           console.log(data_result);

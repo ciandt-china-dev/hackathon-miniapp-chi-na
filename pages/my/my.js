@@ -48,12 +48,6 @@ Page({
   },
   clearFavorite:function(){
     wx.clearStorageSync('myfavorite')
-    this.setData({
-      key: '',
-      data: '',
-      'dialog.hidden': false,
-      'dialog.title': '清除数据成功',
-      'dialog.content': ''
-    })
+    wx.redirectTo({ url: 'my' })
   }
 })
