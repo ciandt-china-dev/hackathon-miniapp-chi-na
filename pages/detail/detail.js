@@ -1,4 +1,4 @@
-// pages/my/index.js
+// pages/detail/detail.js
 Page({
   data:{},
   onLoad:function(options){
@@ -17,7 +17,7 @@ Page({
     // 页面关闭
   },
   setFavorite:function(){
-    var store_id = "3";
+    var store_id = "4";
     var title = "title"+store_id;
     var address_info = "address_info"+store_id;
     var image_path = "image_path"+store_id;
