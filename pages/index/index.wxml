@@ -7,7 +7,9 @@
       </view>
     </picker>
 
-    <view class="location-address">{{address}}</view>
+    <view class="location-address">
+      <input class="location-address-input" bindinput="bindKeyInput" value="{{address}}"/>
+    </view>
 </view>
 
 <view bindtap="randomShop" class="btn-search" data-load-status="{{loadStatus}}" data-shop-id="{{random_shop_id}}"  data-shop-name="{{random_shop_name}}">

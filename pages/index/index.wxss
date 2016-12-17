@@ -80,3 +80,7 @@
     white-space:nowrap;
     text-overflow:ellipsis;
 }
+
+.location-address-input {
+    height: 34px;
+}
