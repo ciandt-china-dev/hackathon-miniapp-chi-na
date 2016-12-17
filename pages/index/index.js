@@ -103,11 +103,20 @@ Page({
     var page = this
     var keyword = page.data.address
     wx.request({
-      url: 'http://www.dianping.com/search/map/ajax/json',
-      data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/search/map/ajax/json',
+      data:{
+        cityId:11,
+        cityEnName:'ningbo',
+        shopType:10,
+        categoryId:10,
+        shopSortItem:1,
+        keyword:keyword,
+        searchType:1
+      },
+      // data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
       }, // 设置请求的 header
       success: function(res){
         // success

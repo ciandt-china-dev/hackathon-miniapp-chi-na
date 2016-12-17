@@ -39,5 +39,9 @@
     "backgroundColor": "#fafbfe",
     "borderStyle": "white"
   },
-  "debug": "true"
+  "debug": "true",
+  "networkTimeout": {
+    "request": 100000,
+    "downloadFile": 100000
+  }
 }
