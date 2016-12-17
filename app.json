@@ -2,7 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/nearby/nearby",
-    "pages/my/index"
+    "pages/my/my"
   ],
   "window": {
     "backgroundColor": "light",
@@ -22,7 +22,7 @@
       "iconPath": "image/icon_list.png",
       "selectedIconPath": "image/icon_list_HL.png"
     },{
-      "pagePath": "pages/my/index",
+      "pagePath": "pages/my/my",
       "text": "我的",
       "iconPath": "image/icon_my.png",
       "selectedIconPath": "image/icon_my_HL.png"
