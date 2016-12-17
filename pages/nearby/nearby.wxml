@@ -1,1 +1,6 @@
-<view>as</view>
+<scroll-view>
+  <block wx:for="{{shops}}" wx:for-index="idx" wx:for-item="shop">
+    <text data-shop-id="{{shop.shopId}}">{{shop.shopName}}</text>
+    <image src="{{shop.defaultPic}}"></image>
+  </block>
+</scroll-view>

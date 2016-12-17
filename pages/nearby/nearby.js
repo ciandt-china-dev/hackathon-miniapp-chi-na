@@ -47,22 +47,10 @@ Page({
             //获取地理关键字
             // console.log(page.data.nearby.data.result.addressComponent.street)
             var keyword = page.data.nearby.data.result.addressComponent.street
-            var keyword_encode = encodeURIComponent(keyword)
+            // var keyword_encode = encodeURIComponent(keyword)
             wx.request({
               url: 'http://www.dianping.com/search/map/ajax/json',
-              data: {
-                cityId:11,
-                cityEnName:'ningbo',
-                promoId:0,
-                shopType:1,
-                categoryId:1,
-                shopSortItem:1,
-                keyword:keyword_encode,
-                searchType:1,
-                branchGroupId:0,
-                shippingTypeFilterValue:0,
-                page:1
-              },
+              data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
               method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
               header: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -71,7 +59,7 @@ Page({
                 // success
                 console.log('success')
                 page.setData({
-                  shops: res
+                  shops: res.data.shopRecordBeanList
                 })
               },
               fail: function() {
