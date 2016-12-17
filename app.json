@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/nearby/nearby",
     "pages/detail/detail",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/address/address"
   ],
   "window": {
     "backgroundColor": "light",
@@ -23,10 +24,15 @@
       "iconPath": "image/icon_list.png",
       "selectedIconPath": "image/icon_list_HL.png"
     },{
-      "pagePath": "pages/my/mystar",
-      "text": "我的",
+      "pagePath": "pages/my/my",
+      "text": "吃过",
       "iconPath": "image/icon_my.png",
       "selectedIconPath": "image/icon_my_HL.png"
+    },{
+      "pagePath": "pages/address/address",
+      "text": "地址",
+      "iconPath": "image/icon_address.png",
+      "selectedIconPath": "image/icon_address_HL.png"
     }],
     "color": "#888",
     "selectedColor": "#29a1f7",

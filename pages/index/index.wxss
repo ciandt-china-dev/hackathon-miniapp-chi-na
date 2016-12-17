@@ -66,6 +66,10 @@
 .address-icon {
     float: right;
     margin-left: 10px;
+    font-size: 0;
+    background: url('../../image/icon_address_white.png') no-repeat center center;
+    background-size: 24px auto;
+
 }
 
 .location-address {

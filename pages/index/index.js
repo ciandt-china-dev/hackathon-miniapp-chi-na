@@ -4,7 +4,6 @@
 Page({
   data: {
     locationSrc: '../../image/icon_index_white.png',
-    addressSrc: '../../image/icon_address_white.png',
     latitude:'',
     longitude:'',
     address:'',

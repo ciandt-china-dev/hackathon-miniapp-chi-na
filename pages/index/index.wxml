@@ -1,14 +1,14 @@
 <view class="location">
     <image class="location-icon" src="{{locationSrc}}" bindtap="locationTap"></image>
-    <image class="address-icon" src="{{addressSrc}}" bindchange="bindPickerChange"></image>
+
+    <picker class="address-icon" bindchange="bindPickerChange" range="{{myAddressPicker.array}}">
+      <view class="picker">
+        {{address}}
+      </view>
+    </picker>
+
     <view class="location-address">{{address}}</view>
 </view>
-
-<picker bindchange="bindPickerChange" range="{{myAddressPicker.array}}">
-  <view class="picker">
-    当前选择：{{address}}
-  </view>
-</picker>
 
 <view bindtap="randomShop" class="btn-search" data-shop-id="{{random_shop_id}}" data-shop-name="{{random_shop_name}}">
   咻一咻
