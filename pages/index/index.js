@@ -22,7 +22,7 @@ Page({
   bindPickerChange: function(e) {
     var page = this;
     var this_address = '';
-    if (typeof(page.data.myAddress[e.detail.value][2]) != "undefined" || page.data.myAddress[e.detail.value][2] == '') {
+    if (typeof(page.data.myAddress[e.detail.value]) != "undefined" || page.data.myAddress[e.detail.value][2] == '') {
       this_address = page.data.myAddress[e.detail.value][2];
     }else{
       this_address = "和邦大厦";
@@ -113,21 +113,15 @@ Page({
 
     var status = page.data.loadStatus
     if(status=="success"){
-          wx.request({
-      url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/search/map/ajax/json',
-      data:{
-        cityId:11,
-        cityEnName:'ningbo',
-        shopType:10,
-        categoryId:10,
-        shopSortItem:1,
-        keyword:keyword,
-        searchType:1
-      },
-      // data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      page.setData({
+        loadStatus:"fail"
+      })
+      wx.request({
+      url: 'http://www.dianping.com/search/map/ajax/json',
+      data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/x-www-form-urlencoded'
       }, // 设置请求的 header
       success: function(res){
         // success
@@ -136,20 +130,26 @@ Page({
             shops: res.data.shopRecordBeanList
         })
           //生成0到19的随机数
-   var randomNum = Math.ceil(Math.random()*19)
+        var randomNum = Math.ceil(Math.random()*19)
 
-   console.log(page.data.shops[randomNum].shopId)
-   page.setData({
-     random_shop_id:page.data.shops[randomNum].shopId,
-     random_shop_name:page.data.shops[randomNum].shopName,
-     loadStatus:"success"
-   })
-    var targetUrl = '/pages/detail/detail'
-    if(e.currentTarget.dataset.shopId != null)
-      targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
-    wx.navigateTo({
-      url: targetUrl
-    })
+        console.log(page.data.shops[randomNum].shopId)
+        page.setData({
+          random_shop_id:page.data.shops[randomNum].shopId,
+          random_shop_name:page.data.shops[randomNum].shopName,
+          loadStatus:"success"
+        })
+        var targetUrl = '/pages/detail/detail'
+        if(e.currentTarget.dataset.shopId != null)
+          targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
+        wx.navigateTo({
+          url: targetUrl,
+           success: function(res){
+            // success
+          // page.setData({
+          //   loadStatus:"success"
+          // })
+          }
+        })
       },
       fail: function() {
               // fail
