@@ -1,30 +1,50 @@
 Page({
   data:{
-    shop_detail:[]
+    shop_detail:[],
+    latitude: 23.099994,
+    longitude: 113.324520,
+    markers: [{
+      latitude: 23.099994,
+      longitude: 113.324520,
+      name: 'T.I.T 创意园'
+    }],
+    covers: [{
+      latitude: 23.099994,
+      longitude: 113.344520,
+      iconPath: '/image/green_tri.png', // 目前有 bug，正确的写法应该是 /image/green_tri.png ，等我们下个版本修复吧T_T
+    }, {
+      latitude: 23.099994,
+      longitude: 113.304520,
+      iconPath: '/image/green_tri.png',
+      rotate: 180
+    }]
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var page = this
 
+    console.log(options);
+
     wx.request({
       url: 'http://www.dianping.com/ajax/json/shop/wizard/BasicHideInfoAjaxFP',
       data: {
-          shopId:options.shopId
+          // shopId:options.shopId
+          shopId:13765960
       },
       method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {
         'Content-Type': 'application/json'
       }, // 设置请求的 header
       success: function(res){
-        this.setData({
-            shop_detail:res.msg.shopInfo
+        page.setData({
+            shop_detail:res.data.msg.shopInfo
         })
       },
       fail: function() {
-        
+
       },
       complete: function() {
-        
+
       }
     })
   },
@@ -70,15 +90,15 @@ Page({
             try {
               wx.setStorageSync('myfavorite', res.data);
               console.log(res.data);
-            } catch (e) {  
-              console.log('Add new store fail');  
+            } catch (e) {
+              console.log('Add new store fail');
             }
           }else{
             try {
               wx.setStorageSync('myfavorite', data_update);
               console.log(res.data);
-            } catch (e) {  
-              console.log('Update new store fail');  
+            } catch (e) {
+              console.log('Update new store fail');
             }
           }
         }
@@ -87,10 +107,10 @@ Page({
         try {
             wx.setStorageSync('myfavorite', store_info);
             console.log(store_info);
-        } catch (e) {  
-            console.log('Add new key fail');  
+        } catch (e) {
+            console.log('Add new key fail');
         }
-        
+
       }
     })
   }
