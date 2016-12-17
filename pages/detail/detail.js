@@ -24,7 +24,7 @@ Page({
     var page = this
 
     wx.request({
-      url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/geocoder/v2',
+      url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/ajax/json/shop/wizard/BasicHideInfoAjaxFP',
       data: {
           shopId:options.shopId
       },
