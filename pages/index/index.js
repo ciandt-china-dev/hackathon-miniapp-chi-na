@@ -25,7 +25,7 @@ Page({
     })
   },
 
-  onLoad:function(options){
+  onShow:function(options){
     var page = this;
     // var myAddressdata = "0###家###印象城|||1###公司###和邦大厦";
     // console.log(myAddressdata);
