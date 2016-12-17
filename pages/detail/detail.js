@@ -5,7 +5,6 @@ Page({
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     var page = this
-
     wx.request({
       url: 'http://www.dianping.com/ajax/json/shop/wizard/BasicHideInfoAjaxFP',
       data: {
@@ -41,10 +40,11 @@ Page({
     // 页面关闭
   },
   setFavorite:function(){
-    var store_id = "4";
-    var title = "title"+store_id;
-    var address_info = "address_info"+store_id;
-    var image_path = "image_path"+store_id;
+    var page = this;
+    var store_id = page.data.shop_detail.shopId;
+    var title = page.data.shop_detail.shopName;
+    var address_info = page.data.shop_detail.address;
+    var image_path = page.data.shop_detail.defaultPic;
     //id###title+###address###pic###num
     var store_info = store_id+"###"+title+"###"+address_info+"###"+image_path+"###"+"1";
     wx.getStorage({
@@ -93,5 +93,8 @@ Page({
         
       }
     })
+  },
+  goback:function(){
+    wx.navigateBack()
   }
 })
