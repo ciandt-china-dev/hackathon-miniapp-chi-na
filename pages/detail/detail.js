@@ -1,8 +1,32 @@
-// pages/detail/detail.js
 Page({
-  data:{},
+  data:{
+    shop_detail:[]
+  },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var page = this
+
+    wx.request({
+      url: 'http://www.dianping.com/ajax/json/shop/wizard/BasicHideInfoAjaxFP',
+      data: {
+          shopId:options.shopId
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        'Content-Type': 'application/json'
+      }, // 设置请求的 header
+      success: function(res){
+        this.setData({
+            shop_detail:res.msg.shopInfo
+        })
+      },
+      fail: function() {
+        
+      },
+      complete: function() {
+        
+      }
+    })
   },
   onReady:function(){
     // 页面渲染完成
@@ -69,5 +93,5 @@ Page({
         
       }
     })
-  },
+  }
 })
