@@ -1,2 +1,3 @@
 <!--pages/my/index.wxml-->
 <button bindtap="setFavorite">确定</button>
+<button bindtap="goback">返回</button>
