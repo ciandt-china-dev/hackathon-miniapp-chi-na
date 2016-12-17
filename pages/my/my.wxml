@@ -1,2 +1,9 @@
-<!--pages/my/index.wxml-->
-<text>pages/my/index.wxml</text>
+<!--pages/my/my.wxml-->
+<scroll-view>
+  <block wx:for="{{myfavorite_shops}}" wx:for-index="idx" wx:for-item="shop">
+    <text data-shop-id="{{shop[0]}}">{{shop[1]}}</text>
+    <text data-shop-id="{{shop[0]}}">{{shop[4]}}</text>
+    <image src="{{shop[3]}}"></image>
+  </block>
+</scroll-view>
+<button bindtap="clearFavorite">清空记录</button>
