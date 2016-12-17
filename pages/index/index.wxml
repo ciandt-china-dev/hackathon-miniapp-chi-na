@@ -1,7 +1,7 @@
 <view class="location">
-    <image class="location-icon" src="{{locationSrc}}"></image>
+    <image class="location-icon" src="{{locationSrc}}" bindtap="locationTap"></image>
     <image class="address-icon" src="{{addressSrc}}"></image>
-    <view class="location-address">天童北路333号和邦大厦2008天童北路333号和邦大厦2008</view>
+    <view class="location-address">{{address}}</view>
 </view>
 
-<view bindtap="getLocation" class="btn-search">搜一搜</view>
+<view bindtap="randomShop" class="btn-search" data-shop-id="{{random_shop_id}}" data-shop-name="{{random_shop_name}}">搜一搜</view>

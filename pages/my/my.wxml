@@ -1,9 +1,14 @@
 <!--pages/my/my.wxml-->
-<scroll-view>
+<scroll-view class="items" bindscrolltolower="pullUpLoadLatest">
   <block wx:for="{{myfavorite_shops}}" wx:for-index="idx" wx:for-item="shop">
-    <text data-shop-id="{{shop[0]}}">{{shop[1]}}</text>
-    <text data-shop-id="{{shop[0]}}">{{shop[4]}}</text>
-    <image src="{{shop[3]}}"></image>
+    <view class="item" data-shop-id="{{shop[0]}}" data-shop-name="{{shop[1]}}" bindtap="onItemClick">
+      <image class="img" src="{{shop[3]}}"></image>
+      <view class="info">
+        <text class="title">{{shop[1]}}</text>
+        <text class="address">{{shop[2]}}</text>
+      </view>
+    </view>
   </block>
 </scroll-view>
+
 <button bindtap="clearFavorite">清空记录</button>

@@ -1,4 +1,5 @@
 <!--pages/my/index.wxml-->
+<<<<<<< HEAD
 <image class="img" mode="aspectFill" src="{{shop_detail.defaultPic}}"></image>
 <view class="block-box">
   <text class="title">{{shop_detail.shopName}}</text>
@@ -35,3 +36,7 @@
     </view>
   </view>
 </view>
+=======
+<button bindtap="setFavorite">确定</button>
+<button bindtap="goback">返回</button>
+>>>>>>> 460b1c2a589eb8aede1846b6e82e4daf0b13ea82

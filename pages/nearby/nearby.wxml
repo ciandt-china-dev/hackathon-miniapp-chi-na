@@ -1,4 +1,4 @@
-<scroll-view class="items">
+<scroll-view class="items" scroll-y="true" bindscrolltolower="pullUpLoadLatest">
   <block wx:for="{{shops}}" wx:for-index="idx" wx:for-item="shop">
     <view class="item" data-shop-id="{{shop.shopId}}" data-shop-name="{{shop.shopName}}" bindtap="onItemClick">
       <image class="img" src="{{shop.defaultPic}}"></image>

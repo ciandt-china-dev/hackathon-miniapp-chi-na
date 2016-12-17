@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/detail/detail",
     "pages/index/index",
     "pages/nearby/nearby",
+    "pages/detail/detail",
     "pages/my/my"
   ],
   "window": {
@@ -20,11 +20,6 @@
     },{
       "pagePath": "pages/nearby/nearby",
       "text": "附近",
-      "iconPath": "image/icon_list.png",
-      "selectedIconPath": "image/icon_list_HL.png"
-    },{
-      "pagePath": "pages/detail/detail",
-      "text": "详细",
       "iconPath": "image/icon_list.png",
       "selectedIconPath": "image/icon_list_HL.png"
     },{
