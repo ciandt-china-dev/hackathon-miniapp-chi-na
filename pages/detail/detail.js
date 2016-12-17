@@ -127,6 +127,23 @@ Page({
 
       }
     })
+
+    wx.openLocation({
+      latitude: page.data.latitude, // 纬度，范围为-90~90，负数表示南纬
+      longitude: page.data.longitude, // 经度，范围为-180~180，负数表示西经
+      scale: 28, // 缩放比例
+      // name: 'name', // 位置名
+      // address: 'address', // 地址的详细说明
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   goback:function(){
     wx.navigateBack()
