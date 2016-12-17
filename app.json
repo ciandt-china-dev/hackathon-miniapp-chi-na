@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/list/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "backgroundColor": "light",
+    "navigationBarBackgroundColor": "#1b82d2",
+    "navigationBarTitleText": "吃哪儿",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "list":[{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    },{
+      "pagePath": "pages/list/index",
+      "text": "列表"
+    },{
+      "pagePath": "pages/my/index",
+      "text": "我的"
+    }],
+    "color": "#888",
+    "selectedColor": "#29a1f7",
+    "backgroundColor": "#fafbfe",
+    "borderStyle": "white"
+  },
+  "debug": "true"
+}
