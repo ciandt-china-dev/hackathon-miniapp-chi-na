@@ -34,7 +34,24 @@ Page({
       }, // 设置请求的 header
       success: function(res){
         page.setData({
-            shop_detail:res.data.msg.shopInfo
+            shop_detail:res.data.msg.shopInfo,
+            latitude:res.data.msg.shopInfo.glat,
+            longitude:res.data.msg.shopInfo.glng,
+            markers: [{
+                latitude: res.data.msg.shopInfo.glat,
+                longitude: res.data.msg.shopInfo.glng,
+                name: res.data.msg.shopInfo.shopName
+            }],
+            covers: [{
+                latitude: res.data.msg.shopInfo.glat,
+                longitude: res.data.msg.shopInfo.glng,
+                iconPath: '/image/green_tri.png', // 目前有 bug，正确的写法应该是 /image/green_tri.png ，等我们下个版本修复吧T_T
+            }, {
+                latitude: res.data.msg.shopInfo.glat,
+                longitude: res.data.msg.shopInfo.glng,
+                iconPath: '/image/green_tri.png',
+                rotate: 180
+            }]
         })
       },
       fail: function() {
