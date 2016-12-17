@@ -24,7 +24,7 @@ Page({
     var page = this
 
     wx.request({
-      url: 'http://www.dianping.com/ajax/json/shop/wizard/BasicHideInfoAjaxFP',
+      url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/geocoder/v2',
       data: {
           shopId:options.shopId
       },

@@ -39,16 +39,20 @@ Page({
         })
 
         wx.request({
-          url: 'http://api.map.baidu.com/geocoder/v2/',
-          data:{
-            location:page.data.latitude+','+page.data.longitude,
-            output:'json',
-            pois:1,
-            ak:'RGOaR2I5rcjRGy5k8Rg5Wa3C'
+         url: 'https://wechatcitdevhfzdlijkdc.devcloud.acquia-sites.com/search/map/ajax/json',
+         data:{
+                cityId:11,
+                cityEnName:'ningbo',
+                shopType:10,
+                categoryId:10,
+                shopSortItem:1,
+                keyword:keyword,
+                searchType:1
           },
+          // data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
           method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
           header: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
           }, // 设置请求的 header
           success: function(res){
             page.setData({
