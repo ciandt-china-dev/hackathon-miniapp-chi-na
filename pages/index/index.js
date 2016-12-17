@@ -27,39 +27,38 @@ Page({
 
   onLoad:function(options){
     var page = this;
-    var myAddressdata = "0###家###印象城|||1###公司###和邦大厦";
-    console.log(myAddressdata);
-    var data_result = new Array();
-    var data_array = myAddressdata.split("|||");
-    for (var i = data_array.length-1; i >=0 ; i--) {
-      var store_detail_array = data_array[i].split("###");
-      data_result[data_array.length-i-1] = store_detail_array;
-    };
-    page.data.myAddress = data_result;
-    console.log(data_result);
+    // var myAddressdata = "0###家###印象城|||1###公司###和邦大厦";
+    // console.log(myAddressdata);
+    // var data_result = new Array();
+    // var data_array = myAddressdata.split("|||");
+    // for (var i = data_array.length-1; i >=0 ; i--) {
+    //   var store_detail_array = data_array[i].split("###");
+    //   data_result[data_array.length-i-1] = store_detail_array;
+    // };
+    // page.data.myAddress = data_result;
 
 
-    // wx.getStorage({
-    //   key: 'myaddress',
-    //   success: function(res) {
-    //     res.data = "0###家###鄞州区印象城|||1###公司###和邦大厦"
-    //     if (res.data) {
-    //       var data_result = new Array();
-    //       var data_array = res.data.split("|||");
-    //       for (var i = data_array.length-1; i >=0 ; i--) {
-    //         var store_detail_array = data_array[i].split("###");
-    //         data_result[data_array.length-i-1] = store_detail_array;
-    //       };
-    //       page.data.myAddress = data_result;
-    //       console.log(data_result);
-    //     }else{
-    //       console.log('None');
-    //     };
-    //   },
-    //   fail: function() {
-    //     console.log('Fail');
-    //   }
-    // })
+    wx.getStorage({
+      key: 'myaddress',
+      success: function(res) {
+        if (res.data) {
+          var data_result = new Array();
+          var data_array = res.data.split("|||");
+          for (var i = data_array.length-1; i >=0 ; i--) {
+            var store_detail_array = data_array[i].split("###");
+            data_result[data_array.length-i-1] = store_detail_array;
+          };
+          page.data.myAddress = data_result;
+          console.log(data_result);
+        }else{
+          console.log('None');
+        };
+      },
+      fail: function() {
+        console.log('Fail');
+      }
+    })
+
     wx.getLocation({
 
       type: 'wgs84',
