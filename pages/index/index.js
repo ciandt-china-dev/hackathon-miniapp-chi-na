@@ -22,8 +22,8 @@ Page({
   bindPickerChange: function(e) {
     var page = this;
     var this_address = '';
-    if (typeof(page.data.myAddress[e.detail.value]) != "undefined" || page.data.myAddress[e.detail.value][2] == '') {
-      this_address = page.data.myAddress[e.detail.value][2];
+    if (typeof(page.data.myAddress[e.detail.value]) != "undefined" && page.data.myAddress[e.detail.value] != '') {
+      this_address = page.data.myAddress[e.detail.value];
     }else{
       this_address = "和邦大厦";
     }
@@ -53,7 +53,7 @@ Page({
           var data_array = res.data.split("|||");
           for (var i = 0; i < data_array.length ; i++) {
             var store_detail_array = data_array[i].split("###");
-            data_result[i] = store_detail_array;
+            data_result[i] = store_detail_array[2];
           };
           page.data.myAddress = data_result;
           console.log(data_result);
@@ -139,17 +139,18 @@ Page({
           loadStatus:"success"
         })
         var targetUrl = '/pages/detail/detail'
-        if(e.currentTarget.dataset.shopId != null)
-          targetUrl = targetUrl + '?shopId=' + e.currentTarget.dataset.shopId+'&shopName='+e.currentTarget.dataset.shopName
-        wx.navigateTo({
-          url: targetUrl,
-           success: function(res){
-            // success
-          // page.setData({
-          //   loadStatus:"success"
-          // })
-          }
-        })
+        if(page.data.shops[randomNum].shopId != null){
+          targetUrl = targetUrl + '?shopId=' + page.data.shops[randomNum].shopId
+          wx.navigateTo({
+            url: targetUrl,
+            success: function(res){
+              // success
+            // page.setData({
+            //   loadStatus:"success"
+            // })
+            }
+          })
+        }
       },
       fail: function() {
               // fail
