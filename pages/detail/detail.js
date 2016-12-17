@@ -33,6 +33,7 @@ Page({
         'Content-Type': 'application/json'
       }, // 设置请求的 header
       success: function(res){
+        wx.showNavigationBarLoading()
         page.setData({
             shop_detail:res.data.msg.shopInfo,
             latitude:res.data.msg.shopInfo.glat,
@@ -57,7 +58,7 @@ Page({
       fail: function() {
       },
       complete: function() {
-
+        wx.hideNavigationBarLoading()
       }
     })
   },

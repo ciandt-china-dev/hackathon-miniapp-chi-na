@@ -37,6 +37,12 @@ Page({
       type: 'wgs84', // 默认为 wgs84 返回 gps 坐标，gcj02 返回可用于 wx.openLocation 的坐标
       success: function(res){
         // success
+        // wx.showToast({
+        //   title: '加载中',
+        //   icon: 'loading',
+        //   duration: 100000
+        // })
+        wx.showNavigationBarLoading()
         console.log(res.latitude)
         console.log(res.longitude)
         page.setData({
@@ -63,6 +69,7 @@ Page({
           },
           fail: function() {
             // fail
+            
           },
           complete: function() {
             // complete
@@ -95,9 +102,22 @@ Page({
               },
               fail: function() {
                 // fail
+              wx.showModal({
+                title: '网络错误',
+                content: '网络挂了😢',
+                success: function(res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                  }
+                }
+              })
               },
               complete: function() {
                 // complete
+                // setTimeout(function(){
+                //   wx.hideToast()
+                // },20000)
+                wx.hideNavigationBarLoading()
               }
             })
           }

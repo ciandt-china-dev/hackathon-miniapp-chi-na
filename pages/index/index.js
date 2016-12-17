@@ -64,6 +64,7 @@ Page({
 
       type: 'wgs84',
       success: function(res) {
+        wx.showNavigationBarLoading()
         page.setData({
             latitude :res.latitude,
             longitude :res.longitude
@@ -92,7 +93,7 @@ Page({
           },
           complete: function() {
             // complete
-
+            wx.hideNavigationBarLoading()
           }
         })
       }
@@ -118,6 +119,15 @@ Page({
       },
       fail: function() {
               // fail
+          wx.showModal({
+             title: '网络错误',
+             content: '网络挂了😢',
+             success: function(res) {
+            if (res.confirm) {
+                console.log('用户点击确定')
+              }
+            }
+          })
       },
       complete: function() {
               // complete
