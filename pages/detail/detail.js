@@ -3,21 +3,7 @@ Page({
     shop_detail:[],
     latitude: 23.099994,
     longitude: 113.324520,
-    markers: [{
-      latitude: 23.099994,
-      longitude: 113.324520,
-      name: 'T.I.T 创意园'
-    }],
-    covers: [{
-      latitude: 23.099994,
-      longitude: 113.344520,
-      iconPath: '/image/green_tri.png', // 目前有 bug，正确的写法应该是 /image/green_tri.png ，等我们下个版本修复吧T_T
-    }, {
-      latitude: 23.099994,
-      longitude: 113.304520,
-      iconPath: '/image/green_tri.png',
-      rotate: 180
-    }]
+    marks_name:''
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
@@ -38,21 +24,7 @@ Page({
             shop_detail:res.data.msg.shopInfo,
             latitude:res.data.msg.shopInfo.glat,
             longitude:res.data.msg.shopInfo.glng,
-            markers: [{
-                latitude: res.data.msg.shopInfo.glat,
-                longitude: res.data.msg.shopInfo.glng,
-                name: res.data.msg.shopInfo.shopName
-            }],
-            covers: [{
-                latitude: res.data.msg.shopInfo.glat,
-                longitude: res.data.msg.shopInfo.glng,
-                iconPath: '/image/green_tri.png', // 目前有 bug，正确的写法应该是 /image/green_tri.png ，等我们下个版本修复吧T_T
-            }, {
-                latitude: res.data.msg.shopInfo.glat,
-                longitude: res.data.msg.shopInfo.glng,
-                iconPath: '/image/green_tri.png',
-                rotate: 180
-            }]
+            marks_name:res.data.msg.shopInfo.shopName
         })
       },
       fail: function() {
@@ -133,7 +105,7 @@ Page({
       latitude: page.data.latitude, // 纬度，范围为-90~90，负数表示南纬
       longitude: page.data.longitude, // 经度，范围为-180~180，负数表示西经
       scale: 28, // 缩放比例
-      // name: 'name', // 位置名
+      name: page.data.marks_name, // 位置名
       // address: 'address', // 地址的详细说明
       success: function(res){
         // success
