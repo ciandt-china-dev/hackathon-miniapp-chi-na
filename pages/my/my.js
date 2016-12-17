@@ -47,10 +47,13 @@ Page({
     // 页面关闭
   },
   clearFavorite:function(){
-    try {
-      wx.removeStorageSync('myfavorite')
-    } catch(e) {
-      console.log('fail');
-    }
+    wx.clearStorageSync('myfavorite')
+    this.setData({
+      key: '',
+      data: '',
+      'dialog.hidden': false,
+      'dialog.title': '清除数据成功',
+      'dialog.content': ''
+    })
   }
 })
