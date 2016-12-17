@@ -4,4 +4,4 @@
     <view class="location-address">{{address}}</view>
 </view>
 
-<view bindtap="getLocation" class="btn-search">搜一搜</view>
+<view bindtap="randomShop" class="btn-search" data-shop-id="{{random_shop_id}}" data-shop-name="{{random_shop_name}}">搜一搜</view>
