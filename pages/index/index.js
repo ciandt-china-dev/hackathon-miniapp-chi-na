@@ -20,8 +20,14 @@ Page({
 
   bindPickerChange: function(e) {
     var page = this;
+    var this_address = '';
+    if (typeof(page.data.myAddress[e.detail.value][2]) != "undefined" || page.data.myAddress[e.detail.value][2] == '') {
+      this_address = page.data.myAddress[e.detail.value][2];
+    }else{
+      this_address = "和邦大厦";
+    }
     this.setData({
-      address: page.data.myAddress[e.detail.value][2]
+      address: this_address
     })
   },
 
