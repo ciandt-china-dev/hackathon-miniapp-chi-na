@@ -16,12 +16,12 @@ Page({
         'Content-Type': 'application/json'
       }, // 设置请求的 header
       success: function(res){
-        this.setData({
-            shop_detail:res.msg.shopInfo
+        page.setData({
+            shop_detail:res.data.msg.shopInfo
         })
       },
       fail: function() {
-        
+        console.log('fail');
       },
       complete: function() {
         
