@@ -42,7 +42,8 @@ Page({
           }, // 设置请求的 header
           success: function(res){
             page.setData({
-              nearby:res
+              nearby:res,
+              address:res.data.result.addressComponent.street
             })
           },
           fail: function() {
@@ -50,28 +51,7 @@ Page({
           },
           complete: function() {
             // complete
-            var keyword = page.data.nearby.data.result.addressComponent.street
-            wx.request({
-              url: 'http://www.dianping.com/search/map/ajax/json',
-              data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
-              method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-              header: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-              }, // 设置请求的 header
-              success: function(res){
-                // success
-                console.log('success')
-                page.setData({
-                  shops: res.data.shopRecordBeanList
-                })
-              },
-              fail: function() {
-                // fail
-              },
-              complete: function() {
-                // complete
-              }
-            })
+   
           }
         })
       }
@@ -79,7 +59,28 @@ Page({
   },
   randomShop: function(e) {
    var page = this
-
+   var keyword = page.data.address
+   wx.request({
+       url: 'http://www.dianping.com/search/map/ajax/json',
+       data: 'cityId=11&cityEnName=ningbo&shopType=10&categoryId=10&shopSortItem=1&keyword='+keyword+'&searchType=1',
+       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+       header: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+       }, // 设置请求的 header
+       success: function(res){
+          // success
+          // console.log('success')
+          page.setData({
+              shops: res.data.shopRecordBeanList
+          })
+        },
+        fail: function() {
+                // fail
+        },
+        complete: function() {
+                // complete
+        }
+    })
    //生成0到19的随机数
    var randomNum = Math.ceil(Math.random()*19)
    
@@ -106,7 +107,7 @@ Page({
         // success
         // console.log(res.address)
         page.setData({
-          address:res.address
+          address:res.name
         })
       },
       fail: function() {
