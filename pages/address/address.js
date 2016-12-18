@@ -33,6 +33,15 @@ Page({
     var myAddressdata = "0###家###"+e.detail.value.address_0+"|||1###公司###"+e.detail.value.address_1;
     try {
       wx.setStorageSync('myaddress', myAddressdata);
+      wx.showModal({
+          title: '保存成功',
+          content: '保存成功！',
+          success: function(res) {
+        if (res.confirm) {
+            console.log('用户点击确定')
+          }
+        }
+      })
       wx.redirectTo({ url: 'address' })
     } catch (e) {
       console.log('Add myAddressdata fail');
